@@ -1,0 +1,7 @@
+{
+  "modules": [
+    {
+      "type": "WpfWorkshop.Modules.MouseClickCounter.MouseClickModule, WpfWorkshop"
+    }
+  ]
+}
