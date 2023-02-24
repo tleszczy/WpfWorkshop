@@ -1,32 +1,28 @@
-﻿using System.Windows.Media;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media;
 using WpfWorkshop.Controls;
-using WpfWorkshop.Modules.ColorChanger;
 
-namespace WpfWorkshop.Modules.MouseClickCounter
+namespace WpfWorkshop.Modules.MouseTrack
 {
-    public class MouseClickViewModel : NotificationObject
+    internal class MouseTrackViewModel : NotificationObject
     {
         private readonly IMouse mouse;
-        private readonly IColorMediator colorMediator;
         private double? patchFramesPerSecond = 1;
-        private string label = "Click counter";
+        private string label = "Mouse track";
         private Color colorPickerColor = Colors.Black;
 
-        public MouseClickViewModel(IMouse mouse, IColorMediator colorMediator)
+        public MouseTrackViewModel(IMouse mouse)
         {
             this.mouse = mouse;
-            this.colorMediator = colorMediator;
-            this.colorMediator.ColorChanged += ColorMediator_ColorChanged;
 
-            this.mouse.MouseLeftButtonDown += (s, e) =>
+            this.mouse.MouseMove += (s, e) =>
             {
                 Value++;
             };
-        }
-
-        private void ColorMediator_ColorChanged(object? sender, System.EventArgs e)
-        {
-            BackgroundColor = this.colorMediator.Color;
         }
 
         public double? Value
@@ -46,5 +42,6 @@ namespace WpfWorkshop.Modules.MouseClickCounter
             get => this.colorPickerColor;
             set => this.SetProperty(ref this.colorPickerColor, value);
         }
+
     }
 }

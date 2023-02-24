@@ -1,26 +1,23 @@
 ﻿using Autofac;
 using WpfWorkshop.Controls;
-using WpfWorkshop.Modules.ColorChanger;
 
-namespace WpfWorkshop.Modules.MouseClickCounter
+namespace WpfWorkshop.Modules.MouseTrack
 {
-    internal class MouseClickModule : Module
+    internal class MouseTrackModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<MouseClickViewModel>();
+            builder.RegisterType<MouseTrackViewModel>().As<MouseTrackViewModel>();
 
             builder.Register((c) =>
             {
-                var viewModel = c.Resolve<MouseClickViewModel>();
+                var viewModel = c.Resolve<MouseTrackViewModel>();
                 return new SimpleCounter
                 {
                     DataContext = viewModel,
                 };
             }
             ).As<IComponentGUI>();
-
-            builder.RegisterType<ColorMediator>().SingleInstance().As<IColorMediator>();
         }
     }
 }

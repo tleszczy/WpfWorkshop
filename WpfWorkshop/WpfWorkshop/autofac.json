@@ -2,6 +2,12 @@
   "modules": [
     {
       "type": "WpfWorkshop.Modules.MouseClickCounter.MouseClickModule, WpfWorkshop"
+    },
+    {
+      "type": "WpfWorkshop.Modules.MouseTrack.MouseTrackModule, WpfWorkshop"
+    },
+    {
+      "type": "WpfWorkshop.Modules.ColorChanger.ColorChangerModule, WpfWorkshop"
     }
   ]
 }

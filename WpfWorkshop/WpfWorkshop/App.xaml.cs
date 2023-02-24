@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Autofac;
 using System.Windows;
+using WpfWorkshop.Modules;
 
 namespace WpfWorkshop
 {
@@ -22,8 +18,15 @@ namespace WpfWorkshop
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            bootstrapper.Initialize();
-            base.OnStartup(e);
+            bootstrapper.Configure();
+
+            var mainViewWindow = bootstrapper.container.Resolve<MainWindowView>();
+            mainViewWindow.DataContext = bootstrapper.container.Resolve<MainWindowViewModel>();
+
+            bootstrapper.container.Resolve<ModuleBuilder>();
+
+            mainViewWindow.Show();
+            //base.OnStartup(e);
         }
     }
 }

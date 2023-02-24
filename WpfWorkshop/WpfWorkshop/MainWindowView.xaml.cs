@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -14,6 +13,13 @@ namespace WpfWorkshop
         {
             InitializeComponent();
             this.Loaded += MainWindowView_Loaded;
+            this.MouseMove += MainWindowView_MouseMove;
+        }
+
+        private void MainWindowView_MouseMove(object sender, MouseEventArgs e)
+        {
+            //txtBox.Text = e.GetPosition(this).ToString();
+            OnMouseMove(e);
         }
 
         private void MainWindowView_Loaded(object sender, RoutedEventArgs e)

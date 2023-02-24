@@ -15,6 +15,11 @@ using System.Windows.Shapes;
 
 namespace WpfWorkshop.Controls
 {
+    public interface IComponentGUI
+    {
+        Control Control { get; }
+    }
+
     /// <summary>
     /// Interaction logic for SimpleCounter.xaml
     /// </summary>

@@ -1,12 +1,9 @@
-﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
 using WpfWorkshop.Modules;
 
 namespace WpfWorkshop
 {
-    internal class MainWindowViewModel : Conductor<Screen>.Collection.OneActive
+    internal class MainWindowViewModel
     {
         public MainWindowViewModel(IEnumerable<IUIComponent> components)
         {
@@ -14,11 +11,5 @@ namespace WpfWorkshop
         }
 
         public IEnumerable<IUIComponent> Components { get; }
-    }
-
-    public interface IMouse
-    {
-        public event MouseEventHandler MouseMove;
-        public event MouseButtonEventHandler MouseLeftButtonDown;
     }
 }

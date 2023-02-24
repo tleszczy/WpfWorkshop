@@ -6,7 +6,9 @@
         xmlns:controls="clr-namespace:WpfWorkshop.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Name="ToolsGrid">
-        <TextBlock Text="hi" Grid.Column="0"></TextBlock>
+    <Grid       
+        Margin="50, 50, 50, 50"
+        Name="ToolsGrid">
+        <TextBlock x:Name="txtBox" Text="Modular App" Grid.Column="0"></TextBlock>
     </Grid>
 </Window>
